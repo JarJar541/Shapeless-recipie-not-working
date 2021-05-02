@@ -1,0 +1,24 @@
+import crafttweaker.item.IItemStack;
+
+val items = [
+			<minecraft:wooden_door>
+			] as IItemStack[];
+for item in items
+{
+	item.addTooltip("Hello World");
+	recipes.remove(item);
+}
+
+var seeds = <minecraft:pumpkin_seeds>;
+
+recipes.addShaped("pumpkinExample1", <ore:cropPumpkin>.firstItem, [
+	[seeds, seeds, seeds]
+]);
+
+recipes.addShapedMirrored("pumpkinExample2", <ore:cropPumpkin>.firstItem, [
+	[null, null, seeds],
+	[null, seeds, null],
+	[seeds, null, null]
+]);
+
+recipes.addShapeless("pumpkinExample3", <ore:cropPumpkin>.firstItem, [seeds, seeds, seeds]);
